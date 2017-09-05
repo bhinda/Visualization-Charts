@@ -1,0 +1,32 @@
+Age <- as.integer(rnorm(10000,m=55, sd=15))
+# histogram
+hist(Age)
+?hist 
+hist(Age, breaks=50)
+
+# Add elements or beautify Histogram
+hist(Age, 
+     breaks=30,
+     col="green",
+     border="white", 
+     xlab="Age", 
+     ylab="Counts", 
+     main="Histogram:Age")
+
+# Scenario: Distribution of Mortality Rates
+
+#http://www.stats4stem.org/r-usmelanoma-data.html
+install.packages("HSAUR2")
+library(HSAUR2)
+data("USmelanoma")
+names(USmelanoma)
+
+xr <- range(USmelanoma$mortality) * c(0.9, 1.1)
+# Histogram
+hist(USmelanoma$mortality,
+     xlim = xr, 
+     xlab = "Mortality", 
+     main = "Histogram:Mortality", 
+     ylab = "Counts",
+     col="red",
+     border="yellow")
