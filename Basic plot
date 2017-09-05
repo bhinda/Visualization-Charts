@@ -1,0 +1,49 @@
+par(mfrow=c(2,2))
+x <- c (1, 2, 3, 4, 5)
+y <- c (1, 5, 3, 2, 0)
+windows()
+par(mfrow=c(2,1))
+plot (x, y, main="Top Left")
+plot (x, y, 
+      main="Top Right",
+      type="b")
+par(mfrow=c(1,1))
+
+## -------------- Explore relationship between two variables----------------------------
+#  How Height of Children is linked to Height of Parents
+#  A scatter plot  - a plot to show the relationship between two quantitative/numeric variables
+
+install.packages("psych")
+library(psych)
+library(help=psych)
+
+data(galton,package = "psych")
+
+head(galton)
+
+plot(galton$parent,
+     galton$child)
+
+# Add elements to the graph
+
+plot(galton$parent,
+     galton$child,
+     xlab = "Height of Parent",
+     ylab= "Height of Children",
+     main=" Relationship between Parent and Children Heights")
+# Changes in Plotting Characters
+
+plot(galton$parent,
+     galton$child,
+     xlab = "Height of Parent",
+     ylab= "Height of Children",
+     main=" Relationship between Parent and Children Heights",
+     pch=17,
+     col="red")
+
+# Fit a line between X and Y  or Height of Parent and Children
+
+abline(lm(galton$parent~galton$child),
+       col = "blue",
+       lwd=4,
+       lty=5)
